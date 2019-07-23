@@ -1,0 +1,32 @@
+<div class="jumbotron mt-2">
+  <h1 class="display-4">Bem vindo, ao HBM blog!</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  <p>NodeJS é top</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Participe agora</a>
+  </p>
+</div>
+<hr>
+<h4>Postagnes recentes:</h4>
+
+    
+    {{#each postagens}}
+         <div class="card mt-4 card-group" role="group">
+            <div class="card-body">
+                <h4 class="default">{{titulo}}</h4>
+                <p>{{descricao}}</p>
+                <div class="mx-auto" style="width: 200px;">
+                    <a href="postagens/{{slug}}"><button class="btn btn-outline-success" style="font-size:medium;width: auto;">Continue lendo</button></a>
+                </div>
+    <hr>
+    <small class="mt-2">Categoria: <a href="categorias/{{categorias.slug}}" >{{categorias.nome}}</a></small>
+    <br>
+    <small>Data: {{data}}</small>
+        </div>    
+        
+    </div>
+     {{else}}
+        <h5 class="mt-3">Nenhuma Postagem!</h5>        
+    {{/each}}
+    

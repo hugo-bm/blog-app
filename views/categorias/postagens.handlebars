@@ -1,0 +1,21 @@
+<h3>{{categoria.nome}}: </h3>
+<hr>
+
+{{#each postagens}}
+    <div class="card mt-4 card-group" role="group">
+        <div class="card-body">
+            <h4 class="default">{{titulo}}</h4>
+                <p>{{descricao}}</p>
+            <div class="mx-auto" style="width: 200px;">
+                <a href="/postagens/{{slug}}"><button class="btn btn-outline-success" style="font-size:medium;width: auto;">Continue lendo</button></a>
+            </div>
+            <hr>
+            <small class="mt-2">Categoria: {{postagens.categorias.nome}}</small>
+            <br>
+            <small>Data: {{data}}</small>
+        </div>    
+        
+    </div>
+{{else}}
+    <h5 class="mt-3">Nenhuma Postagem!</h5>        
+{{/each}}

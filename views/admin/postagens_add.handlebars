@@ -1,0 +1,29 @@
+{{#each erro}}
+<div class="alert alert-danger">{{texto}}</div>
+    {{else}}
+{{/each}}
+<h2>Nova postagem: </h2>
+<div class="card border-primary mt-4">
+    <div class="card-body text-dark">
+        <form action="/admin/postagens/nova" method="POST">
+
+            <label for="titulo" ><small style="color: firebrick">*</small> Título: </label>
+                <input class="form-control" type="text" name="titulo" id="titulo" placeholder="Digite o titulo da postagem" required>
+            <label for="slug"><small style="color: firebrick">*</small> Slug: </label>
+                <input class="form-control" type="text" name="slug" id="slug" placeholder="Digite o slug da postagem" required>
+            <label for="descricao"><small style="color: firebrick">*</small> Descrição: </label>
+                <textarea name="descricao" id="descricao"  class="form-control" placeholder="Digite sua descrição da postagem" required></textarea>
+            <label for="conteudo"><small style="color: firebrick">*</small> Conteúdo: </label>
+                <textarea name="conteudo" id="conteudo"  class="form-control" placeholder="Digite sua postagem" required></textarea>
+            <label for="categorias"><small style="color: firebrick">*</small> Categorias: </label>
+            <select name="categorias" class="custom-select" required>
+                {{#each categorias}}
+                    <option value="{{_id}}">{{nome}}</option>
+                {{else}}
+                    <option value="0">Nenhuma categoria</option>
+                {{/each}}
+            </select>
+            <button type="submit" class="btn btn-success" style="margin-top: 2%">Criar postagem</button>
+        </form>
+    </div>
+</div>
