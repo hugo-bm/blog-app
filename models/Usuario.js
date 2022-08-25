@@ -20,4 +20,5 @@ const Usuario = new Schema({
     }
     
 })
+//teste
 mongoose.model('usuarios',Usuario)
