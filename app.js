@@ -43,7 +43,7 @@ const db = require('./config/db')
        app.set('view engine', 'handlebars');
     //mongoose
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://'+process.env.USER_MONGO+':'+process.env.USER_MONGO_SECRET+'@cluster0-dm37c.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true}).then(
+    mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true}).then(
         ()=>console.log('Conectado no mongo\nAi caramba!!!')).catch(
             (erro)=>console.log('Erro na conexao do servidor: '+ erro));
 // public - statics arquives
