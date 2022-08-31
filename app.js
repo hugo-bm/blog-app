@@ -20,7 +20,7 @@ const db = require('./config/db')
 // Configurações 
     //Sessão
         app.use(session({
-            secret: 'yflwzWvUizlrk',
+            secret: process.env.SECRET_SESSION,
             resave: true,
             saveUninitialized: true
         }))
@@ -43,7 +43,7 @@ const db = require('./config/db')
        app.set('view engine', 'handlebars');
     //mongoose
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://hugo_blog_app:asdfghjkl@cluster0-dm37c.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true}).then(
+    mongoose.connect('mongodb://'+process.env.USER_MONGO+':'+process.env.USER_MONGO_SECRET+'@cluster0-dm37c.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true}).then(
         ()=>console.log('Conectado no mongo\nAi caramba!!!')).catch(
             (erro)=>console.log('Erro na conexao do servidor: '+ erro));
 // public - statics arquives
